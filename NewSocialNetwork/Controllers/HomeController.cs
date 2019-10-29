@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NewSocialNetwork.Models;
 
@@ -10,12 +11,24 @@ namespace NewSocialNetwork.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index() // Стартовая страница приложения 
+        UserManager<User> _userManager;
+
+        public HomeController(UserManager<User> userManager)
         {
+            _userManager = userManager;
+        }
+
+        public async Task<IActionResult> Index() // Стартовая страница приложения (Профиль пользователя)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+                return View(user);
+            }
             return View();
         }
 
-        public IActionResult PersonalInformationSetting() // Страница настроек пользователя
+        public IActionResult EditProfile() // Страница настроек пользователя
         {
             return View();
         }

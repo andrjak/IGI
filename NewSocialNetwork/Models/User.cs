@@ -20,5 +20,8 @@ namespace NewSocialNetwork.Models
         [Required]
         [MaxLength(100)]
         public string Surname { get; set; }
+
+        public virtual ICollection<UserChat> Chats { get; set; }
+        public virtual ICollection<User> Friends { get; set; }
     }
 }

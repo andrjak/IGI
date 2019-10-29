@@ -92,8 +92,7 @@ namespace NewSocialNetwork.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<IActionResult> LogOff()
         {
             // удаляем аутентификационные куки

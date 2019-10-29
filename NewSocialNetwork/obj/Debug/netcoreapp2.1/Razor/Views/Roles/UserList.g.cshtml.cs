@@ -104,7 +104,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("</td>\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(295, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cee8df6d1ee0401aab4477ae04885e3d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e37c6436a71e46edb66c9fb35b0b3d59", async() => {
                 BeginContext(375, 13, true);
                 WriteLiteral("Access rights");
                 EndContext();

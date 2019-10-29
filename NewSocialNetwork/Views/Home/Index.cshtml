@@ -1,18 +1,17 @@
-﻿@{
+﻿@model NewSocialNetwork.Models.User
+@{
     ViewData["Title"] = "User Profile";
 }
 
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>@User.Identity.Name</p>
-
-    <form method="post" asp-controller="Account" asp-action="LogOff">
-        <input type="submit" value="Выход" />
-    </form>
+    <h2>@Model.Name @Model.Surname</h2>
+    <p>@Model.UserName</p>
+    <p>Country:  @Model.Country</p>
+    <p>Birthday:  @Model.Birthday</p>
 }
 else
 {
-    <a asp-controller="Account" asp-action="Login">Вход</a>
-    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+    <h3>Log in to see your profile</h3>
 }

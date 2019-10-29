@@ -58,7 +58,7 @@ using NewSocialNetwork.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(0, 35, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba609d1787e04a62be91c1ff168bb1cd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d0940c9242ed47d1b871250a50e87026", async() => {
                 BeginContext(23, 8, true);
                 WriteLiteral("Add user");
                 EndContext();
@@ -139,12 +139,12 @@ using NewSocialNetwork.Models;
             WriteLiteral("</td>\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(351, 395, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6233d4c89b6545c8bf0a768ac3378bc2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c3a6ccdeaad49fd8f1cefd2dcea9c50", async() => {
                 BeginContext(415, 18, true);
                 WriteLiteral("\r\n                ");
                 EndContext();
                 BeginContext(433, 84, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d33a68379144d5caa476ed304e92e88", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d4185ea3f7449a79f927ca4ce9297fb", async() => {
                     BeginContext(509, 4, true);
                     WriteLiteral("Edit");
                     EndContext();
@@ -180,7 +180,7 @@ using NewSocialNetwork.Models;
                 WriteLiteral("\r\n                ");
                 EndContext();
                 BeginContext(535, 105, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "791b2e38c7c94c3fb94afbde813f1411", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8fea0b6687946d797bcd0d6d390f547", async() => {
                     BeginContext(621, 15, true);
                     WriteLiteral("Change Password");
                     EndContext();
