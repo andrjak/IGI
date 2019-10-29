@@ -24,7 +24,8 @@ namespace NewSocialNetwork.Data
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
                 User admin = new User { Email = adminEmail, UserName = adminEmail,
-                    Birthday = new DateTime(2000, 4, 21), Country = "Belarus" };
+                    Birthday = new DateTime(2000, 4, 21), Country = "Belarus",
+                    Name = "Andrey", Surname = "Valetko"};
                 IdentityResult result = await userManager.CreateAsync(admin, password);
                 if (result.Succeeded)
                 {

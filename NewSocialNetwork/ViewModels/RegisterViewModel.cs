@@ -13,6 +13,14 @@ namespace NewSocialNetwork.ViewModels
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Name not specifed")]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Surname not specifed")]
+        [Display(Name = "Surname")]
+        public string Surname { get; set; }
+
         [Required(ErrorMessage = "Birthday not specified")]
         [Display(Name = "Birthday")]
         [DataType(DataType.Date)]

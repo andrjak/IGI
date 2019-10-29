@@ -15,6 +15,11 @@ namespace NewSocialNetwork.Controllers
             return View();
         }
 
+        public IActionResult PersonalInformationSetting() // Страница настроек пользователя
+        {
+            return View();
+        }
+
         public IActionResult FriendList()
         {
             ViewData["Message"] = "Your friends.";

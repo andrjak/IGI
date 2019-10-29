@@ -8,7 +8,7 @@ using NewSocialNetwork.Models;
 
 namespace NewSocialNetwork.Data
 {
-    public class ApplicationContext : IdentityDbContext<User>
+    public class ApplicationContext : IdentityDbContext<User> // Update-Database используется для миграции
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)  
         {
