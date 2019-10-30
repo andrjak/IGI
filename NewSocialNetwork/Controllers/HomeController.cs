@@ -33,10 +33,13 @@ namespace NewSocialNetwork.Controllers
             return View();
         }
 
-        public IActionResult FriendList()
+        public async Task<IActionResult> FriendList()
         {
-            ViewData["Message"] = "Your friends.";
-
+            if (User.Identity.IsAuthenticated)
+            {
+                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+                return View(user);
+            }
             return View();
         }
 
