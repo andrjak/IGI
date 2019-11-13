@@ -4,7 +4,7 @@
 {
     <h2>@Model.Name @Model.Surname</h2>
 
-    <img src=@Model.ImagePath alt="User photo" width="300" height="250"/>
+    <img src=@Model.ImagePath alt="User photo" width="300" height="250" />
 
     <p>@Model.UserName</p>
     <p>Country:  @Model.Country</p>
@@ -12,15 +12,20 @@
     <details>
         <summary>Detailed information <a asp-area="" asp-controller="ProfileSettings" asp-action="EditProfile">Edit user profile</a></summary>
         <ul>
-            <li>Languages:  @Model?.Languages</li>
-            <li>Interests:  @Model?.Interests</li>
-            <li>Favorites Games:  @Model?.FavoriteGames</li>
-            <li>Favorites Films:  @Model?.FavoriteFilms</li>
-            <li>Activities:  @Model?.Activities</li>
+            <li>Languages:  @Model.Languages</li>
+            <li>Interests:  @Model.Interests</li>
+            <li>Favorites Games:  @Model.FavoriteGames</li>
+            <li>Favorites Films:  @Model.FavoriteFilms</li>
+            <li>Activities:  @Model.Activities</li>
         </ul>
     </details>
 }
 else
 {
-    <h3>Log in to see your profile</h3>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Oswald'>
+    <link rel="stylesheet" href="~/invitation/css/style.css">
+    <div class="text">Log in to see your profile</div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/invitation/js/index.js"></script>
 }
