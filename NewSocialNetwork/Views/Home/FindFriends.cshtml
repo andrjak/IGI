@@ -1,0 +1,18 @@
+﻿<h2> Search new Friends </h2>
+
+<table class="table">
+    <tr><th>Email</th><th>Birthday</th><th></th></tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>@user.Name</td>
+            <td>@user.Surname</td>
+            <td>@user.Country</td>
+            <td>@user.Birthday</td>
+            <td>
+                    <a class="btn btn-sm btn-primary" asp-controller="Home" asp-action="AddFrend" asp-route-id="@user.Id">Add friend</a>
+            </td>
+        </tr>
+    }
+</table>

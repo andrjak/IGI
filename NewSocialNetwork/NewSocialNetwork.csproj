@@ -18,6 +18,8 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\Photos\" />
   </ItemGroup>
 
 </Project>

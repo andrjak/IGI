@@ -10,6 +10,7 @@ namespace NewSocialNetwork.Models
     public class User : IdentityUser
     {
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
         [Required]
         [MaxLength(100)]
@@ -24,7 +25,9 @@ namespace NewSocialNetwork.Models
         public virtual ICollection<UserChat> Chats { get; set; }
         public virtual ICollection<User> Friends { get; set; }
 
-        public string Image { get; set; }
+        public string ImagePath { get; set; }
+        public string ImageName { get; set; }
+
         public string Languages { get; set; }
         public string Interests { get; set; }
         public string FavoriteGames { get; set; }

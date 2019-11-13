@@ -192,7 +192,9 @@ namespace NewSocialNetwork.Migrations
 
                     b.Property<string>("FavoriteGames");
 
-                    b.Property<string>("Image");
+                    b.Property<string>("ImageName");
+
+                    b.Property<string>("ImagePath");
 
                     b.Property<string>("Interests");
 

@@ -4,19 +4,19 @@
 {
     <h2>@Model.Name @Model.Surname</h2>
 
-    <img src=@Model.Image alt="User photo"/>
+    <img src=@Model.ImagePath alt="User photo" width="300" height="250"/>
 
     <p>@Model.UserName</p>
     <p>Country:  @Model.Country</p>
     <p>Birthday:  @Model.Birthday</p>
     <details>
-        <summary>Detailed information</summary>
+        <summary>Detailed information <a asp-area="" asp-controller="Home" asp-action="EditProfile">Edit user profile</a></summary>
         <ul>
             <li>Languages:  @Model?.Languages</li>
             <li>Interests:  @Model?.Interests</li>
             <li>Favorites Games:  @Model?.FavoriteGames</li>
             <li>Favorites Films:  @Model?.FavoriteFilms</li>
-            <li>Activities:  @Model.Activities</li>
+            <li>Activities:  @Model?.Activities</li>
         </ul>
     </details>
 }

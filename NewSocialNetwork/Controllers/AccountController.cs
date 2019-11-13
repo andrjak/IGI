@@ -39,14 +39,16 @@ namespace NewSocialNetwork.Controllers
                     Birthday = model.Birthday,
                     Country = model.Country,
                     Name = model.Name,
-                    Surname = model.Surname
-                };
+                    Surname = model.Surname                    
+                };  
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
+                    // устанавливаем роль
+                    await _userManager.AddToRoleAsync(user, "user");
                     return RedirectToAction("Index", "Home");
                 }
                 else

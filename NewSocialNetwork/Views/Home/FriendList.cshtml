@@ -2,5 +2,25 @@
 
 <h2>Your friends</h2>
 
+<br>
+<a class="btn btn-sm btn-primary" asp-area="" asp-controller="Home" asp-action="FindFriends">Find new friend</a>
+<br>
 
+@if (Model.Friends != null)
+{
+
+    @foreach (var item in Model.Friends)
+    {
+        <def>
+            <h4>@item.Name @item.Surname</h4>
+            <p>@item.UserName</p>
+            <img src=@item.ImagePath alt="User photo" width="300" height="250" />
+        </def>
+    }
+
+}
+else
+{
+        <h4> Friends list is empty </h4>
+}
 

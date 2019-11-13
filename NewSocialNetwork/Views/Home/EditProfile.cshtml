@@ -1,0 +1,65 @@
+﻿@model NewSocialNetwork.Models.User
+
+<h3>Upload photo</h3>
+
+<form asp-action="AddPhoto" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input type="file" accept="image/*" name="uploadedFile" /><br>
+    <input type="submit" value="Set photo" class="btn btn-default" />
+</form>
+
+<br>
+<br>
+
+<form asp-action="EditMainInfo" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Surname" class="control-label">Surname</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Birthday" class="control-label">Birthday</label>
+        <input type="date" asp-for="Birthday" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Country" class="control-label">Country</label>
+        <input type="text" asp-for="Country" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</form>
+
+<br>
+<br>
+
+<form asp-action="EditProfile" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="Languages" class="control-label">Languages</label>
+        <input type="text" asp-for="Languages" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Interests" class="control-label">Interests</label>
+        <input type="text" asp-for="Interests" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FavoriteGames" class="control-label">FavoriteGames</label>
+        <input type="text" asp-for="FavoriteGames" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FavoriteFilms" class="control-label">FavoriteFilms</label>
+        <input type="text" asp-for="FavoriteFilms" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Activities" class="control-label">Activities</label>
+        <input type="text" asp-for="Activities" class="form-control" />
+    </div>
+    <input type="submit" value="Enter" class="btn btn-default" />
+</form>

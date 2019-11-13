@@ -41,3 +41,5 @@ D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Home\FriendList.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Home\MessageList.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Home\EditProfile.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Home\FindFriends.g.cshtml.cs

@@ -15,10 +15,12 @@ namespace NewSocialNetwork.ViewModels
 
         [Required(ErrorMessage = "Name not specifed")]
         [Display(Name = "Name")]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Surname not specifed")]
         [Display(Name = "Surname")]
+        [MaxLength(100)]
         public string Surname { get; set; }
 
         [Required(ErrorMessage = "Birthday not specified")]
@@ -28,6 +30,7 @@ namespace NewSocialNetwork.ViewModels
 
         [Required(ErrorMessage = "Country not specified")]
         [Display(Name = "Country")]
+        [MaxLength(100)]
         public string Country { get; set; }
 
         [Required(ErrorMessage = "Password not specified")]
