@@ -115,7 +115,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("</td>\r\n            <td>\r\n                    ");
             EndContext();
             BeginContext(380, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3d4ba211be14253a5cebfe470ad0acd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a0b99ad97b2465a96d3942a9c1f9f4b", async() => {
                 BeginContext(482, 10, true);
                 WriteLiteral("Add friend");
                 EndContext();

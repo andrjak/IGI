@@ -38,102 +38,108 @@ namespace NewSocialNetwork.Controllers
             return View();
         }
 
-        [Authorize(Roles = "admin, user")]
-        public IActionResult EditProfile() // Страница настроек пользователя
-        {
-            return View();
-        }
+        //[Authorize(Roles = "admin, user")]
+        //public IActionResult EditProfile() // Страница настроек пользователя
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        [Authorize(Roles = "admin, user")]
-        public async Task<IActionResult> EditProfile(AdditionalSettingsViewModel model) 
-        {
-            if (ModelState.IsValid)
-            {
-                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+        //[HttpPost]
+        //[Authorize(Roles = "admin, user")]
+        //public async Task<IActionResult> EditProfile(AdditionalSettingsViewModel model) 
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        User user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                user.Activities = model?.Activities;
-                user.FavoriteFilms = model?.FavoriteFilms;
-                user.FavoriteGames = model?.FavoriteGames;
-                user.Interests = model?.Interests;
-                user.Languages = model?.Languages;
+        //        user.Name = model?.Name;
+        //        user.Surname = model?.Surname;
+        //        user.Country = model?.Country;
+        //        user.Email = model?.Email;
+        //        user.Birthday = model.Birthday;
 
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
-            }
-            return View();
-        }
+        //        user.Activities = model?.Activities;
+        //        user.FavoriteFilms = model?.FavoriteFilms;
+        //        user.FavoriteGames = model?.FavoriteGames;
+        //        user.Interests = model?.Interests;
+        //        user.Languages = model?.Languages;
 
-        [HttpPost]
-        [Authorize(Roles = "admin, user")]
-        public async Task<IActionResult> EditMainInfo(EditUserViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+        //        var result = await _userManager.UpdateAsync(user);
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToAction("Index");
+        //        }
+        //        else
+        //        {
+        //            foreach (var error in result.Errors)
+        //            {
+        //                ModelState.AddModelError(string.Empty, error.Description);
+        //            }
+        //        }
+        //    }
+        //    return View();
+        //}
 
-                user.Name = model?.Name;
-                user.Surname = model?.Surname;
-                user.Country = model?.Country;
-                user.Email = model?.Email;
-                user.Birthday = model.Birthday;
+        //[HttpPost]
+        //[Authorize(Roles = "admin, user")]
+        //public async Task<IActionResult> EditMainInfo(EditUserViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        User user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
-            }
-            return View();
-        }
+        //        user.Name = model?.Name;
+        //        user.Surname = model?.Surname;
+        //        user.Country = model?.Country;
+        //        user.Email = model?.Email;
+        //        user.Birthday = model.Birthday;
 
-        [HttpPost]
-        [Authorize(Roles = "admin, user")]
-        public async Task<IActionResult> AddPhoto(IFormFile uploadedFile)
-        {
-            if (uploadedFile != null)
-            {
-                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+        //        var result = await _userManager.UpdateAsync(user);
+        //        if (result.Succeeded)
+        //        {
+        //            return RedirectToAction("Index");
+        //        }
+        //        else
+        //        {
+        //            foreach (var error in result.Errors)
+        //            {
+        //                ModelState.AddModelError(string.Empty, error.Description);
+        //            }
+        //        }
+        //    }
+        //    return View();
+        //}
 
-                if (user.ImagePath != null) // Если фото уже существует удаляем его 
-                {
-                    FileInfo fileInf = new FileInfo(user.ImagePath);
-                    if (fileInf.Exists)
-                    {
-                        fileInf.Delete();
-                    }
-                }
+        //[HttpPost]
+        //[Authorize(Roles = "admin, user")]
+        //public async Task<IActionResult> AddPhoto(IFormFile uploadedFile)
+        //{
+        //    if (uploadedFile != null)
+        //    {
+        //        User user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+        //        if (user.ImagePath != null) // Если фото уже существует удаляем его 
+        //        {
+        //            FileInfo fileInf = new FileInfo(user.ImagePath);
+        //            if (fileInf.Exists)
+        //            {
+        //                fileInf.Delete();
+        //            }
+        //        }
                 
-                string path = "/Photos/" + uploadedFile.FileName; // путь к папке Files
-                // сохраняем файл в папку Files в каталоге wwwroot
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    await uploadedFile.CopyToAsync(fileStream);
-                }
-                user.ImagePath = path;
-                user.ImageName = uploadedFile.FileName;
-                _context.SaveChanges();
-            }
+        //        string path = "/Photos/" + uploadedFile.FileName; // путь к папке Files
+        //        // сохраняем файл в папку Files в каталоге wwwroot
+        //        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+        //        {
+        //            await uploadedFile.CopyToAsync(fileStream);
+        //        }
+        //        user.ImagePath = path;
+        //        user.ImageName = uploadedFile.FileName;
+        //        _context.SaveChanges();
+        //    }
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
         [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> FriendList()

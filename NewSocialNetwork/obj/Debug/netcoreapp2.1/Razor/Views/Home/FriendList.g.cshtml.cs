@@ -57,7 +57,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("\r\n<h2>Your friends</h2>\r\n\r\n<br>\r\n");
             EndContext();
             BeginContext(70, 112, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "735620c0f79e41f6bc1be255165c0d62", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0159499edec433db159cce412e403c5", async() => {
                 BeginContext(163, 15, true);
                 WriteLiteral("Find new friend");
                 EndContext();
