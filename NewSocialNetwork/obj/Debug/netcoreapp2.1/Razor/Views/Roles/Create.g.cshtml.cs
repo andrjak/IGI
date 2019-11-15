@@ -58,7 +58,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(17, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31c6648a56a645a6b271aa4e16e23490", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8ef8a4c9d2946c0816f568ed9c20547", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -82,7 +82,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(81, 251, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a907be48733c4b909d3bf8e90c5dc122", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba5706e9cef549ca9ef9d71e0fc1a0d1", async() => {
                 BeginContext(121, 204, true);
                 WriteLiteral("\r\n    <div class=\"form-group\">\r\n        <label for=\"name\">New role</label>\r\n        <input name=\"name\" class=\"form-control\" />\r\n    </div>\r\n    <button type=\"submit\" class=\"btn btn-primary\">Add</button>\r\n");
                 EndContext();

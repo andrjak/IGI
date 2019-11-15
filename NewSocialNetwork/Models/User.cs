@@ -21,9 +21,38 @@ namespace NewSocialNetwork.Models
         [Required]
         [MaxLength(100)]
         public string Surname { get; set; }
+
         // personal information
-        public virtual ICollection<UserChat> Chats { get; set; }
-        public virtual ICollection<User> Friends { get; set; }
+        private ICollection<UserChat> chats;
+        private ICollection<User> friends;
+        public virtual ICollection<UserChat> Chats
+        {
+            get
+            {
+                if (chats == null)
+                    chats = new List<UserChat>();
+                return chats;
+            }
+            set
+            {
+                if (value != null)
+                    chats = value;
+            }
+        }
+        public virtual ICollection<User> Friends
+        {
+            get
+            {
+                if (friends == null)
+                    friends = new List<User>();
+                return friends;
+            }
+            set
+            {
+                if (value != null)
+                    friends = value;
+            }
+        }
 
         public string ImagePath { get; set; }
         public string ImageName { get; set; }

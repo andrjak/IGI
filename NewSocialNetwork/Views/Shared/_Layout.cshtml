@@ -34,20 +34,27 @@
                     <li><a asp-area="" asp-controller="Friend" asp-action="FriendList">Friends</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="MessageList">Messages</a></li>
                     <partial name="_LoginPartial" />
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li><a asp-area="" asp-controller="Users" asp-action="Index">Users</a></li>
+                        <li><a asp-area="" asp-controller="Roles" asp-action="Index">Roles</a></li>
+                    }
                 </ul>
             </div>
         </div>
     </nav>
-    <br>
 
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2019 - NewSocialNetwork</p>
-        </footer>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <footer>
+                <p>&copy; 2019 - NewSocialNetwork</p>
+            </footer>
+        }
     </div>
 
     <environment include="Development">

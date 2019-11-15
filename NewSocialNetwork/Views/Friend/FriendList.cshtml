@@ -1,26 +1,24 @@
-﻿@model NewSocialNetwork.Models.User
-
-<h2>Your friends</h2>
+﻿<h2>Your friends</h2>
 
 <br>
 <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Friend" asp-action="FindFriends">Find new friend</a>
 <br>
 
-@if (Model.Friends != null)
+@if (Model != null && Model.Count != 0)
 {
 
-    @foreach (var item in Model.Friends)
+    @foreach (User item in Model)
     {
-        <def>
+        <div>
+            <img src=@item.ImagePath alt="User photo" width="300" height="250" />
             <h4>@item.Name @item.Surname</h4>
             <p>@item.UserName</p>
-            <img src=@item.ImagePath alt="User photo" width="300" height="250" />
-        </def>
+        </div>
     }
 
 }
 else
 {
-        <h4> Friends list is empty </h4>
+    <h4> Friends list is empty </h4>
 }
 

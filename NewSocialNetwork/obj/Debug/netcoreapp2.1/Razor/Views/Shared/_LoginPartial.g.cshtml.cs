@@ -63,7 +63,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("    <ul class=\"nav navbar-nav navbar-right\">\r\n        <li>\r\n            ");
             EndContext();
             BeginContext(112, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23f2ea6be9234b5ebab111f63e55cc27", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3ea4fe3c60744152b56738b505ec2399", async() => {
                 BeginContext(160, 4, true);
                 WriteLiteral("Exit");
                 EndContext();
@@ -97,7 +97,7 @@ else
             WriteLiteral("    <ul class=\"nav navbar-nav navbar-right\">\r\n        <li>");
             EndContext();
             BeginContext(266, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c644818c82f4b289a980a303f4c060a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a43af953d3204038aa132af2d78b4355", async() => {
                 BeginContext(313, 5, true);
                 WriteLiteral("Login");
                 EndContext();
@@ -121,7 +121,7 @@ else
             WriteLiteral("</li>\r\n        <li>");
             EndContext();
             BeginContext(341, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c578d564431246fea309168d065dd617", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58c82211d51b43818cd4fa8360edb992", async() => {
                 BeginContext(391, 8, true);
                 WriteLiteral("Register");
                 EndContext();

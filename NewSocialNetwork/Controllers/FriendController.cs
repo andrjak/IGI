@@ -27,18 +27,20 @@ namespace NewSocialNetwork.Controllers
         [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> FriendList()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                User user = await _userManager.FindByNameAsync(User.Identity.Name);
-                return View(user);
-            }
-            return View();
+            User user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var allUser = _userManager.Users.ToList();
+            var result = allUser.Intersect(user.Friends).ToList();
+            return View(result);
         }
 
         [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> FindFriends()
         {
-            return View(_userManager.Users.ToList());
+            User user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var allUser = _userManager.Users.ToList();
+            var result = allUser.Except(user.Friends).ToList();
+            result.Remove(user);
+            return View(result);
         }
 
         [HttpGet]
@@ -50,8 +52,6 @@ namespace NewSocialNetwork.Controllers
 
             if (friend != null && user != null)
             {
-                if (user.Friends == null)
-                    user.Friends = new List<User>();
                 user.Friends.Add(friend);
                 var result = await _userManager.UpdateAsync(user);
                 await _context.SaveChangesAsync();
