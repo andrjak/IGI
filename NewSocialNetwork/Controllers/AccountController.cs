@@ -49,6 +49,7 @@ namespace NewSocialNetwork.Controllers
                     await _signInManager.SignInAsync(user, false);
                     // устанавливаем роль
                     await _userManager.AddToRoleAsync(user, "user");
+                    await _signInManager.RefreshSignInAsync(user);
                     return RedirectToAction("Index", "Home");
                 }
                 else

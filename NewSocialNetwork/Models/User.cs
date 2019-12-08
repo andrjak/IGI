@@ -24,7 +24,11 @@ namespace NewSocialNetwork.Models
 
         // personal information
         private ICollection<UserChat> chats;
-        private ICollection<User> friends;
+        //private ICollection<Following> following;
+        //private ICollection<Follower> followers;
+        public virtual ICollection<Follow> Followings { get; set; }
+        public virtual ICollection<Follow> Followers { get; set; }
+
         public virtual ICollection<UserChat> Chats
         {
             get
@@ -39,20 +43,61 @@ namespace NewSocialNetwork.Models
                     chats = value;
             }
         }
-        public virtual ICollection<User> Friends
-        {
-            get
-            {
-                if (friends == null)
-                    friends = new List<User>();
-                return friends;
-            }
-            set
-            {
-                if (value != null)
-                    friends = value;
-            }
-        }
+        //public virtual ICollection<Following> Following
+        //{
+        //    get
+        //    {
+        //        if (following == null)
+        //            following = new List<Following>();
+        //        return following;
+        //    }
+        //    set
+        //    {
+        //        following = value;
+        //    }
+        //}
+
+        //public virtual ICollection<Follower> Followers
+        //{
+        //    get
+        //    {
+        //        if (followers == null)
+        //            followers = new List<Follower>();
+        //        return followers;
+        //    }
+        //    set
+        //    {
+        //        followers = value;
+        //    }
+        //}
+
+        //public virtual ICollection<User> Following
+        //{
+        //    get
+        //    {
+        //        if (following == null)
+        //            following = new List<User>();
+        //        return following;
+        //    }
+        //    set
+        //    {
+        //        following = value;
+        //    }
+        //}
+
+        //public virtual ICollection<User> Followers
+        //{
+        //    get
+        //    {
+        //        if (followers == null)
+        //            followers = new List<User>();
+        //        return followers;
+        //    }
+        //    set
+        //    {
+        //        followers = value;
+        //    }
+        //}
 
         public string ImagePath { get; set; }
         public string ImageName { get; set; }
@@ -62,5 +107,12 @@ namespace NewSocialNetwork.Models
         public string FavoriteGames { get; set; }
         public string FavoriteFilms { get; set; }
         public string Activities { get; set; }
+
+        public User()
+        {
+            Followings = new List<Follow>();
+            Followers = new List<Follow>();
+        }
+
     }
 }

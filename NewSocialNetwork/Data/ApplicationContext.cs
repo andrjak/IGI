@@ -12,6 +12,7 @@ namespace NewSocialNetwork.Data
     {
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Follow> Follows { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)  
         {
@@ -32,6 +33,9 @@ namespace NewSocialNetwork.Data
                 .HasOne(uc => uc.Chat)
                 .WithMany(c => c.Users)
                 .HasForeignKey(uc => uc.ChatId);
+
+            modelBuilder.Entity<Follow>().HasOne(ing => ing.Following).WithMany(er => er.Followers);
+            modelBuilder.Entity<Follow>().HasOne(er => er.Follower).WithMany(ing => ing.Followings);
 
             base.OnModelCreating(modelBuilder);
         }

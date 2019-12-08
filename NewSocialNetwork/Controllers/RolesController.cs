@@ -15,14 +15,21 @@ namespace NewSocialNetwork.Controllers
     {
         RoleManager<IdentityRole> _roleManager;
         UserManager<User> _userManager;
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+        SignInManager<User> _signInManager;
+
+        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
-        public IActionResult Index() => View(_roleManager.Roles.ToList());
+        public IActionResult Index()
+        {
+            return View(_roleManager.Roles.ToList());
+        }
 
         public IActionResult Create() => View();
+
         [HttpPost]
         public async Task<IActionResult> Create(string name)
         {
@@ -77,6 +84,7 @@ namespace NewSocialNetwork.Controllers
             }
             return NotFound();
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {
@@ -95,7 +103,8 @@ namespace NewSocialNetwork.Controllers
 
                 await _userManager.AddToRolesAsync(user, addedRoles);
                 await _userManager.RemoveFromRolesAsync(user, removedRoles);
-                return RedirectToAction("UserList");
+                await _userManager.UpdateSecurityStampAsync(user);
+                return RedirectToAction("Index");
             }
 
             return NotFound();

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewSocialNetwork.Migrations
 {
-    public partial class UserFix : Migration
+    public partial class New : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,18 +51,11 @@ namespace NewSocialNetwork.Migrations
                     Interests = table.Column<string>(nullable: true),
                     FavoriteGames = table.Column<string>(nullable: true),
                     FavoriteFilms = table.Column<string>(nullable: true),
-                    Activities = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    Activities = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -272,11 +265,6 @@ namespace NewSocialNetwork.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_UserId",
-                table: "AspNetUsers",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_ChatId",

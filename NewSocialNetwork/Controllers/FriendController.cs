@@ -24,13 +24,18 @@ namespace NewSocialNetwork.Controllers
             _appEnvironment = appEnvironment;
         }
 
+        [Route("Index")]
+        [Route("Friend")]
+        [Route("FriendList")]
         [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> FriendList()
         {
             User user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var allUser = _userManager.Users.ToList();
-            var result = allUser.Intersect(user.Friends).ToList();
-            return View(result);
+            // Подписчики на user 
+            var userFollower = _context.Follows.Where(var => var.FollowingId == user.Id).Select(var => var.Follower);
+            // Подписки user
+            var userFollowing = _context.Follows.Where(var => var.FollowerId == user.Id).Select(var => var.Following);
+            return View(userFollower.Intersect(userFollowing).ToList());
         }
 
         [Authorize(Roles = "admin, user")]
@@ -38,7 +43,9 @@ namespace NewSocialNetwork.Controllers
         {
             User user = await _userManager.FindByNameAsync(User.Identity.Name);
             var allUser = _userManager.Users.ToList();
-            var result = allUser.Except(user.Friends).ToList();
+            // Подписки user
+            var userFollowing = _context.Follows.Where(var => var.FollowerId == user.Id).Select(var => var.Following);
+            var result = allUser.Except(userFollowing).ToList();
             result.Remove(user);
             return View(result);
         }
@@ -49,14 +56,43 @@ namespace NewSocialNetwork.Controllers
         {
             User user = await _userManager.FindByNameAsync(User.Identity.Name);
             User friend = await _userManager.FindByIdAsync(id);
-
+            
             if (friend != null && user != null)
             {
-                user.Friends.Add(friend);
-                var result = await _userManager.UpdateAsync(user);
-                await _context.SaveChangesAsync();
+                if (user.Followings == null)
+                    user.Followings = new List<Follow>();
+                if (friend.Followers == null)
+                    friend.Followers = new List<Follow>();
+                var follow = new Follow(user, friend);
+                _context.Follows.Add(follow);
+                _context.Users.Find(user.Id).Followings.Add(follow);
+                _context.Users.Find(friend.Id).Followers.Add(follow);
+
+                //user.Followings.Add(new Following(friend));
+                //friend.Followers.Add(new Follower(user));
+                var result1 = await _userManager.UpdateAsync(user);
+                var result2 = await _userManager.UpdateAsync(friend);
+                if (result1.Succeeded && result2.Succeeded)
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("FindFriends");
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            return RedirectToAction("FindFriends");
+            else return NotFound();
         }
+
+        [Route("Followers")]
+        [Route("FollowersList")]
+        [Authorize(Roles = "admin, user")]
+        public IActionResult FollowersList() { return View(); }
+
+        [Route("Following")]
+        [Route("FollowingList")]
+        [Authorize(Roles = "admin, user")]
+        public IActionResult FollowingList() { return View(); }
     }
 }

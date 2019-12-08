@@ -23,13 +23,31 @@ namespace NewSocialNetwork.Data
             }
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
-                User admin = new User { Email = adminEmail, UserName = adminEmail,
-                    Birthday = new DateTime(2000, 4, 21), Country = "Belarus",
-                    Name = "Andrey", Surname = "Valetko"};
-                IdentityResult result = await userManager.CreateAsync(admin, password);
-                if (result.Succeeded)
+                User admin = new User
+                {
+                    Email = adminEmail,
+                    UserName = adminEmail,
+                    Birthday = new DateTime(2000, 4, 21),
+                    Country = "Belarus",
+                    Name = "Andrey",
+                    Surname = "Valetko",
+                };
+                User friend = new User
+                {
+                    Email = "79821842rt@gmail.com",
+                    UserName = "79821842rt@gmail.com",
+                    Birthday = new DateTime(2000, 1, 19),
+                    Country = "Belarus",
+                    Name = "Alexander",
+                    Surname = "Matyushonak",
+                };
+
+                IdentityResult result1 = await userManager.CreateAsync(admin, password);
+                IdentityResult result2 = await userManager.CreateAsync(friend, password);
+                if (result1.Succeeded && result2.Succeeded)
                 {
                     await userManager.AddToRoleAsync(admin, "admin");
+                    await userManager.AddToRoleAsync(friend, "user");
                 }
             }
         }

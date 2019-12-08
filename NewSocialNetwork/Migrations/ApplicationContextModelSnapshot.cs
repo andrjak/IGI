@@ -228,8 +228,6 @@ namespace NewSocialNetwork.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<string>("UserId");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
@@ -242,8 +240,6 @@ namespace NewSocialNetwork.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -314,13 +310,6 @@ namespace NewSocialNetwork.Migrations
 
                     b.HasOne("NewSocialNetwork.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("NewSocialNetwork.Models.User", b =>
-                {
-                    b.HasOne("NewSocialNetwork.Models.User")
-                        .WithMany("Friends")
                         .HasForeignKey("UserId");
                 });
 

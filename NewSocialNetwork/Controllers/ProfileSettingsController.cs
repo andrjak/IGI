@@ -89,36 +89,6 @@ namespace NewSocialNetwork.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[Authorize(Roles = "admin, user")]
-        //public async Task<IActionResult> EditMainInfo(EditUserViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        User user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-        //        user.Name = model?.Name;
-        //        user.Surname = model?.Surname;
-        //        user.Country = model?.Country;
-        //        user.Email = model?.Email;
-        //        user.Birthday = model.Birthday;
-
-        //        var result = await _userManager.UpdateAsync(user);
-        //        if (result.Succeeded)
-        //        {
-        //            return RedirectToAction("Index");
-        //        }
-        //        else
-        //        {
-        //            foreach (var error in result.Errors)
-        //            {
-        //                ModelState.AddModelError(string.Empty, error.Description);
-        //            }
-        //        }
-        //    }
-        //    return View();
-        //}
-
         [HttpPost]
         [Authorize(Roles = "admin, user")]
         public async Task<IActionResult> AddPhoto(IFormFile uploadedFile)

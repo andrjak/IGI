@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewSocialNetwork.TagHelpers
 {
-    public class ListTagHelper : TagHelper
+    public class SelectTagHelper : TagHelper
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
