@@ -1,24 +1,22 @@
-﻿<h2>Your friends</h2>
+﻿<h2 class="text-center">Your friends</h2>
 
 <br>
-<a class="btn btn-sm btn-primary" asp-area="" asp-controller="Friend" asp-action="FindFriends">Find new friend</a>
+<div class="text-center">
+    <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Friend" asp-action="FindFriends">Find new friend</a>
+</div>
 <br>
 
 @if (Model != null && Model.Count != 0)
 {
-
     @foreach (User item in Model)
     {
-        <div>
-            <img src=@item.ImagePath alt="User photo" width="300" height="250" />
-            <h4>@item.Name @item.Surname</h4>
-            <p>@item.UserName</p>
-        </div>
-    }
+        @await Html.PartialAsync("_Following", item)
+        <hr />
+        }
 
 }
 else
 {
-    <h4> Friends list is empty </h4>
+    <h4 class="text-center"> Friends list is empty </h4>
 }
 

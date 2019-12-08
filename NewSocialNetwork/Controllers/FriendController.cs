@@ -68,14 +68,41 @@ namespace NewSocialNetwork.Controllers
                 _context.Users.Find(user.Id).Followings.Add(follow);
                 _context.Users.Find(friend.Id).Followers.Add(follow);
 
-                //user.Followings.Add(new Following(friend));
-                //friend.Followers.Add(new Follower(user));
                 var result1 = await _userManager.UpdateAsync(user);
                 var result2 = await _userManager.UpdateAsync(friend);
                 if (result1.Succeeded && result2.Succeeded)
                 {
                     await _context.SaveChangesAsync();
                     return RedirectToAction("FindFriends");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            else return NotFound();
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "admin, user")]
+        public async Task<IActionResult> DeleteFriend(string id)
+        {
+            User user = await _userManager.FindByNameAsync(User.Identity.Name);
+            User friend = await _userManager.FindByIdAsync(id);
+
+            if (friend != null && user != null)
+            {
+                var follow = _context.Follows.Where(t =>t.FollowerId == user.Id && t.FollowingId == friend.Id).ToList();
+                _context.Follows.Remove(follow[0]);
+                _context.Users.Find(user.Id).Followings.Remove(follow[0]);
+                _context.Users.Find(friend.Id).Followers.Remove(follow[0]);
+
+                var result1 = await _userManager.UpdateAsync(user);
+                var result2 = await _userManager.UpdateAsync(friend);
+                if (result1.Succeeded && result2.Succeeded)
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("FriendList");
                 }
                 else
                 {

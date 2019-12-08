@@ -1,0 +1,19 @@
+﻿@model User
+
+<div style="margin: auto auto auto auto;">
+    <div class="center-block">
+        <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="350" height="350" src=@Model.ImagePath alt="User photo" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#55595c"></rect></img>
+            <div class="card-body">
+                <p class="card-text">
+                    <b>@Model.Name @Model.Surname</b> <br />
+                    @Model.Email
+                </p>
+                <div class="btn-group">
+                    <a class="btn-danger" asp-controller="Friend" asp-action="DeleteFriend" asp-route-id="@Model.Id">Delete</a>
+                </div>
+                <small class="text-muted">@Model.Country</small>
+            </div>
+        </div>
+    </div>
+</div>

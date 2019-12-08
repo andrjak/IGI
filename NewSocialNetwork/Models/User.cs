@@ -43,61 +43,6 @@ namespace NewSocialNetwork.Models
                     chats = value;
             }
         }
-        //public virtual ICollection<Following> Following
-        //{
-        //    get
-        //    {
-        //        if (following == null)
-        //            following = new List<Following>();
-        //        return following;
-        //    }
-        //    set
-        //    {
-        //        following = value;
-        //    }
-        //}
-
-        //public virtual ICollection<Follower> Followers
-        //{
-        //    get
-        //    {
-        //        if (followers == null)
-        //            followers = new List<Follower>();
-        //        return followers;
-        //    }
-        //    set
-        //    {
-        //        followers = value;
-        //    }
-        //}
-
-        //public virtual ICollection<User> Following
-        //{
-        //    get
-        //    {
-        //        if (following == null)
-        //            following = new List<User>();
-        //        return following;
-        //    }
-        //    set
-        //    {
-        //        following = value;
-        //    }
-        //}
-
-        //public virtual ICollection<User> Followers
-        //{
-        //    get
-        //    {
-        //        if (followers == null)
-        //            followers = new List<User>();
-        //        return followers;
-        //    }
-        //    set
-        //    {
-        //        followers = value;
-        //    }
-        //}
 
         public string ImagePath { get; set; }
         public string ImageName { get; set; }
@@ -112,6 +57,8 @@ namespace NewSocialNetwork.Models
         {
             Followings = new List<Follow>();
             Followers = new List<Follow>();
+            ImageName = "default.png";
+            ImagePath = "/Photos/default.png ";
         }
 
     }

@@ -47,3 +47,6 @@ D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.pdb
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.csproj.CopyComplete
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.csprojAssemblyReference.cache
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_UserTemplate.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Follower.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Following.g.cshtml.cs

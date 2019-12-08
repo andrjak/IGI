@@ -48,6 +48,8 @@ namespace NewSocialNetwork
                 options.ValidationInterval = TimeSpan.Zero;
             });
 
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             services.AddSignalR();
 
         }
