@@ -96,7 +96,7 @@ WriteAttributeValue("", 220, Model.ImagePath, 220, 16, false);
             WriteLiteral("\r\n                </p>\r\n                <div class=\"btn-group\">\r\n                    ");
             EndContext();
             BeginContext(638, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc9695271d3c4612aac54f0803205257", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a494e6696d954f2bb0799e85eccdff13", async() => {
                 BeginContext(735, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

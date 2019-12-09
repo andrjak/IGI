@@ -31,8 +31,12 @@ D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Roles\UserList.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Follower.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Following.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Friend.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_UserTemplate.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Users\ChangePassword.g.cshtml.cs
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Users\Create.g.cshtml.cs
@@ -47,6 +51,5 @@ D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.pdb
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.csproj.CopyComplete
 D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\NewSocialNetwork.csprojAssemblyReference.cache
-D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_UserTemplate.g.cshtml.cs
-D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Follower.g.cshtml.cs
-D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Following.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Chats\SelectedChat.g.cshtml.cs
+D:\5_SEM\IGI\MainProject\NewSocialNetwork\NewSocialNetwork\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Message.g.cshtml.cs

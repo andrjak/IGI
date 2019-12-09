@@ -1,4 +1,8 @@
-﻿<h2 class="text-center">Your friends</h2>
+﻿@model List<User>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<h2 class="text-center">Your friends</h2>
 
 <br>
 <div class="text-center">
@@ -8,15 +12,43 @@
 
 @if (Model != null && Model.Count != 0)
 {
-    @foreach (User item in Model)
-    {
-        @await Html.PartialAsync("_Following", item)
-        <hr />
-        }
-
+    <div class="posts" id="postsArea">
+        @{await Html.RenderPartialAsync("_Friend", Model);}
+    </div>
 }
 else
 {
     <h4 class="text-center"> Friends list is empty </h4>
 }
 
+<script>
+        $(function () {
+            var pageNumber = 0;
+            var _inCallback = false;
+            function getUsers() {
+                if (pageNumber > -1 && !_inCallback) {
+                    _inCallback = true;
+                    pageNumber++;
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Friend/FriendList',
+                        data: { pageNumber },
+                        success: function (data) {
+                            if (data != '') {
+                                $(".posts").append(data);
+                            }
+                            else {
+                                pageNumber = -1;
+                            }
+                            _inCallback = false;
+                        }
+                    });
+                }
+            }
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+                    getUsers();
+                }
+            });
+        })
+    </script>

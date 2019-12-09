@@ -71,6 +71,11 @@ namespace NewSocialNetwork
             app.UseStaticFiles();
             app.UseAuthentication();
 
+            app.UseSignalR(routes =>
+                {
+                    routes.MapHub<Hubs.ChatHub>("/chat");
+                });
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

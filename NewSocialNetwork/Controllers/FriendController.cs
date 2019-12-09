@@ -13,6 +13,7 @@ namespace NewSocialNetwork.Controllers
 {
     public class FriendController : Controller
     {
+        const int friendCount = 3;
         UserManager<User> _userManager;
         ApplicationContext _context;
         IHostingEnvironment _appEnvironment;
@@ -24,18 +25,27 @@ namespace NewSocialNetwork.Controllers
             _appEnvironment = appEnvironment;
         }
 
-        [Route("Index")]
-        [Route("Friend")]
-        [Route("FriendList")]
+        [HttpGet]
         [Authorize(Roles = "admin, user")]
-        public async Task<IActionResult> FriendList()
+        public async Task<IActionResult> FriendList(int pageNumber = 0)
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("~/Views/Shared/_Friend.cshtml", await getFriendList(pageNumber));
+                //return View(userFollower.Intersect(userFollowing).Skip(pageNumber * friendCount).Take(friendCount).ToList());
+            }
+            else return View(await getFriendList(pageNumber));
+            //return View(userFollower.Intersect(userFollowing).ToList());
+        }
+
+        private async Task<List<User>> getFriendList(int pageNumber)
         {
             User user = await _userManager.FindByNameAsync(User.Identity.Name);
             // Подписчики на user 
             var userFollower = _context.Follows.Where(var => var.FollowingId == user.Id).Select(var => var.Follower);
             // Подписки user
             var userFollowing = _context.Follows.Where(var => var.FollowerId == user.Id).Select(var => var.Following);
-            return View(userFollower.Intersect(userFollowing).ToList());
+            return userFollower.Intersect(userFollowing).Skip(pageNumber * friendCount).Take(friendCount).ToList();
         }
 
         [Authorize(Roles = "admin, user")]

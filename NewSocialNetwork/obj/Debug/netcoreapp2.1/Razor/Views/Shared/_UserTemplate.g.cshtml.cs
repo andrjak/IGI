@@ -96,7 +96,7 @@ WriteAttributeValue("", 220, Model.ImagePath, 220, 16, false);
             WriteLiteral("\r\n                </p>\r\n                <div class=\"btn-group\">\r\n                    ");
             EndContext();
             BeginContext(638, 120, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "402cea3924cf43e386dff9cad5abb699", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "561dff848dcb4c799a7712176ac090b1", async() => {
                 BeginContext(744, 10, true);
                 WriteLiteral("Add friend");
                 EndContext();

@@ -1,0 +1,65 @@
+﻿@model List<User>
+<script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<h2 class="text-center"> @Model[0].Name @Model[0].Surname </h2>
+<h4 id="userName" class="text-center"> @Model[0].UserName </h4>
+
+<div class="center-block">
+    <div class="MessageList">
+
+    </div>
+
+    <input type="text" id="message">
+    <br />
+    <button id="sendBtn" class="btn btn-sm btn-primary">Send</button>
+</div>
+
+<script>
+        let token;
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/chat")
+            .build();
+
+        //function getData() {
+        //    var mainData
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/Chats/getData',
+        //        success: function (data) {
+        //            if (data != '') {
+        //                mainData = data
+        //            }
+        //        }
+        //    });
+        //    alert("getData " + mainData)
+        //    return mainData
+        //}
+
+        function getMessage(massage, userName) {
+            alert("getMessage" + massage + " " + userName)
+            $.ajax({
+                type: 'GET',
+                url: '/Chats/getMessage',
+                data: { message, userName },
+                success: function (data) {
+                    if (data != '') {
+                        $(".MessageList").append(data);
+                    }
+                }
+            });
+        }
+        // получение сообщения с сервера
+        hubConnection.on("Receive", function (message, userName) {
+            getMessage(message, userName)
+        });
+
+        // отправка сообщения на сервер
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+            alert("handler")
+            let message = document.getElementById("message").value
+            alert("Message " + message)
+            var to = document.getElementById("userName").textContent
+            alert("Send " + to)
+            hubConnection.invoke("Send", message, to)
+        });
+</script>
