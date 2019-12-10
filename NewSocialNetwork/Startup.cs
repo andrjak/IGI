@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -7,11 +8,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NewSocialNetwork.constraints;
 using NewSocialNetwork.Data;
 using NewSocialNetwork.Models;
 
@@ -51,6 +54,30 @@ namespace NewSocialNetwork
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             services.AddSignalR();
+
+            services.AddRouting(options =>
+            {
+                    options.ConstraintMap.Add("correctID", typeof(IdConstraint));
+            });
+
+            var supportedCultures = new[]
+{
+                new CultureInfo("en"),
+                new CultureInfo("de"),
+                new CultureInfo("ru")
+            };
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new RequestCulture("en");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+                options.RequestCultureProviders = new List<IRequestCultureProvider>
+                {
+                    new QueryStringRequestCultureProvider(),
+                    new CookieRequestCultureProvider()
+                };
+            });
 
         }
 

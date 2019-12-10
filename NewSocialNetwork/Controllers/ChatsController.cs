@@ -38,15 +38,15 @@ namespace NewSocialNetwork.Controllers
             else return NotFound();
         }
 
-        [Authorize(Roles = "admin, user")]
-        public IActionResult getData()
-        {
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-            {
-                return View(SelectedUser.UserName);
-            }
-            return NotFound();
-        }
+        //[Authorize(Roles = "admin, user")]
+        //public IActionResult getData()
+        //{
+        //    if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+        //    {
+        //        return View(SelectedUser.UserName);
+        //    }
+        //    return NotFound();
+        //}
 
         [Authorize(Roles = "admin, user")]
         public IActionResult getMessage(string massage, string userName)

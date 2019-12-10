@@ -57,7 +57,7 @@ using NewSocialNetwork.Models;
             WriteLiteral("\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n\r\n<h2 class=\"text-center\">Your friends</h2>\r\n\r\n<br>\r\n<div class=\"text-center\">\r\n    ");
             EndContext();
             BeginContext(195, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5f763836f0040d1acfbb38cfa106959", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "945b908adb4f4cfc893e5295c6585c6a", async() => {
                 BeginContext(290, 15, true);
                 WriteLiteral("Find new friend");
                 EndContext();

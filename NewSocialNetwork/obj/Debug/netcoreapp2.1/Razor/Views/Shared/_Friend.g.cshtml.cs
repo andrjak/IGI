@@ -108,7 +108,7 @@ WriteAttributeValue("", 133, item.ImagePath, 133, 15, false);
             WriteLiteral("\r\n        </p>\r\n        <div class=\"btn-group\">\r\n            ");
             EndContext();
             BeginContext(485, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6ae22d7859f4cdba4e960749aeb1dfa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c93ca88b76f4b329138236b4c7e7187", async() => {
                 BeginContext(592, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -146,7 +146,7 @@ WriteAttributeValue("", 133, item.ImagePath, 133, 15, false);
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(616, 118, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d50ae6d0856d4320906fcca024eb5b93", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "56c7d1b564d14a9587a9740c3d465450", async() => {
                 BeginContext(723, 7, true);
                 WriteLiteral("Message");
                 EndContext();
