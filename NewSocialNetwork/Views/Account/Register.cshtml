@@ -1,43 +1,47 @@
 ﻿@model NewSocialNetwork.ViewModels.RegisterViewModel
-<h2>New User Registration</h2>
-<form method="post" asp-controller="Account" asp-action="Register">
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<h2 class="text-center">@Localizer["Message"]</h2>
+<form method="post" asp-controller="Account" asp-action="Register" class="center-block">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <label asp-for="Email"></label><br />
+        <label>@Localizer["Email"]</label><br />
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="Name"></label><br />
+        <label>@Localizer["Name"]</label><br />
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
     <div>
-        <label asp-for="Surname"></label><br />
+        <label>@Localizer["Surname"]</label><br />
         <input asp-for="Surname" />
         <span asp-validation-for="Surname"></span>
     </div>
     <div>
-        <label asp-for="Birthday"></label><br />
+        <label>@Localizer["Birthday"]</label><br />
         <input asp-for="Birthday" />
         <span asp-validation-for="Birthday"></span>
     </div>
     <div>
-        <label asp-for="Country"></label><br />
+        <label>@Localizer["Country"]</label><br />
         <input asp-for="Country" />
         <span asp-validation-for="Country"></span>
     </div>
     <div>
-        <label asp-for="Password"></label><br />
+        <label>@Localizer["Password"]</label><br />
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="ConfirmPassword"></label><br />
+        <label>@Localizer["ConfirmPassword"]</label><br />
         <input asp-for="ConfirmPassword" />
         <span asp-validation-for="ConfirmPassword"></span>
     </div>
+    <br/>
     <div>
-        <input type="submit" value="Registration" />
+        <input type="submit" value=@Localizer["Registration"] />
     </div>
 </form>

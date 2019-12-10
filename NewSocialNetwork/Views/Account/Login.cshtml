@@ -1,24 +1,26 @@
 ﻿@model NewSocialNetwork.ViewModels.LoginViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
-<h2>Login to the application</h2>
+<h2>@Localizer["Message"]</h2>
 <form method="post" asp-controller="Account" asp-action="Login"
       asp-route-returnUrl="@Model.ReturnUrl">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
-        <label asp-for="Email"></label><br />
+        <label>@Localizer["Email"]</label><br />
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
     <div>
-        <label asp-for="Password"></label><br />
+        <label>@Localizer["Password"]</label><br />
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
     <div>
-        <label asp-for="RememberMe"></label><br />
+        <label>@Localizer["RememberMe"]</label><br />
         <input asp-for="RememberMe" />
     </div>
     <div>
-        <input type="submit" value="Enter" />
+        <input type="submit" value=@Localizer["Enter"] />
     </div>
 </form>

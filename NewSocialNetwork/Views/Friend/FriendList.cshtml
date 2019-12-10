@@ -1,12 +1,14 @@
-﻿@model List<User>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model List<User>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<h2 class="text-center">Your friends</h2>
+<h2 class="text-center">@Localizer["message"]</h2>
 
 <br>
 <div class="text-center">
-    <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Friend" asp-action="FindFriends">Find new friend</a>
+    <a class="btn btn-sm btn-primary" asp-area="" asp-controller="Friend" asp-action="FindFriends">@Localizer["Find"]</a>
 </div>
 <br>
 
@@ -18,37 +20,37 @@
 }
 else
 {
-    <h4 class="text-center"> Friends list is empty </h4>
+    <h4 class="text-center"> @Localizer["empty"] </h4>
 }
 
 <script>
-        $(function () {
-            var pageNumber = 0;
-            var _inCallback = false;
-            function getUsers() {
-                if (pageNumber > -1 && !_inCallback) {
-                    _inCallback = true;
-                    pageNumber++;
-                    $.ajax({
-                        type: 'GET',
-                        url: '/Friend/FriendList',
-                        data: { pageNumber },
-                        success: function (data) {
-                            if (data != '') {
-                                $(".posts").append(data);
-                            }
-                            else {
-                                pageNumber = -1;
-                            }
-                            _inCallback = false;
+    $(function () {
+        var pageNumber = 0;
+        var _inCallback = false;
+        function getUsers() {
+            if (pageNumber > -1 && !_inCallback) {
+                _inCallback = true;
+                pageNumber++;
+                $.ajax({
+                    type: 'GET',
+                    url: '/Friend/FriendList',
+                    data: { pageNumber },
+                    success: function (data) {
+                        if (data != '') {
+                            $(".posts").append(data);
                         }
-                    });
-                }
+                        else {
+                            pageNumber = -1;
+                        }
+                        _inCallback = false;
+                    }
+                });
             }
-            $(window).scroll(function () {
-                if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
-                    getUsers();
-                }
-            });
-        })
-    </script>
+        }
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+                getUsers();
+            }
+        });
+    })
+</script>

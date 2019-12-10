@@ -1,4 +1,6 @@
-﻿@model User
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model User
 
 <div style="margin: auto auto auto auto;">
     <div class="center-block">
@@ -10,7 +12,7 @@
                     @Model.Email
                 </p>
                 <div class="btn-group">
-                    <a class="btn-danger" asp-controller="Friend" asp-action="DeleteFriend" asp-route-id="@Model.Id">Delete</a>
+                    <a class="btn-danger" asp-controller="Friend" asp-action="DeleteFriend" asp-route-id="@Model.Id">@Localizer["Delete"]</a>
                 </div>
                 <small class="text-muted">@Model.Country</small>
             </div>

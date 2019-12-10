@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,17 +34,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Friend" asp-action="FollowersList">Followers</a></li>
-                    <li><a asp-area="" asp-controller="Friend" asp-action="FollowingList">Following</a></li>
-                    <li><a asp-area="" asp-controller="Friend" asp-action="FriendList">Friends</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="MessageList">Messages</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
+                    <li><a asp-area="" asp-controller="Friend" asp-action="FollowersList">@Localizer["Followers"]</a></li>
+                    <li><a asp-area="" asp-controller="Friend" asp-action="FollowingList">@Localizer["Following"]</a></li>
+                    <li><a asp-area="" asp-controller="Friend" asp-action="FriendList">@Localizer["Friends"]</a></li>
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="MessageList">Messages</a></li>*@
                     <partial name="_LoginPartial" />
                     @if (User.IsInRole("admin"))
                     {
-                        <li><a asp-area="" asp-controller="Users" asp-action="Index">Users</a></li>
-                        <li><a asp-area="" asp-controller="Roles" asp-action="Index">Roles</a></li>
+                        <li><a asp-area="" asp-controller="Users" asp-action="Index">@Localizer["Users"]</a></li>
+                        <li>
+                            <a asp-area="" asp-controller="Roles" asp-action="Index">
+                                @Localizer["Roles"]
+                            </a>
+                        </li>
                     }
+                    <li>
+                        @await Html.PartialAsync("_SelectLanguagePartial")
+                    </li>
                 </ul>
             </div>
         </div>

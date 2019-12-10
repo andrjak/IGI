@@ -1,4 +1,6 @@
-﻿@model List<User>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model List<User>
 
 @foreach (User item in Model)
 {
@@ -9,8 +11,8 @@
             @item.Email
         </p>
         <div class="btn-group">
-            <a class="btn btn-sm btn-danger" asp-controller="Friend" asp-action="DeleteFriend" asp-route-id="@item.Id">Delete</a>
-            <a class="btn btn-sm btn-primary" asp-controller="Chats" asp-action="SelectedChat" asp-route-id="@item.Id">Message</a>
+            <a class="btn btn-sm btn-danger" asp-controller="Friend" asp-action="DeleteFriend" asp-route-id="@item.Id">@Localizer["Delete"]</a>
+            <a class="btn btn-sm btn-primary" asp-controller="Chats" asp-action="SelectedChat" asp-route-id="@item.Id">@Localizer["Message"]</a>
         </div>
         <small class="text-muted">@item.Country</small>
     </div>

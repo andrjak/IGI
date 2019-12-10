@@ -33,6 +33,17 @@
         "runtime": {
           "NewSocialNetwork.dll": {}
         },
+        "resources": {
+          "de/NewSocialNetwork.resources.dll": {
+            "locale": "de"
+          },
+          "en/NewSocialNetwork.resources.dll": {
+            "locale": "en"
+          },
+          "ru/NewSocialNetwork.resources.dll": {
+            "locale": "ru"
+          }
+        },
         "compile": {
           "NewSocialNetwork.dll": {}
         }

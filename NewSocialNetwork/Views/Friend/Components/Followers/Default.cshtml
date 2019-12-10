@@ -1,6 +1,9 @@
-﻿@if (Model != null && Model.Count != 0)
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@if (Model != null && Model.Count != 0)
 {
-    <h2 class="text-center">Followers</h2>
+<h2 class="text-center">@Localizer["Followers"]</h2>
     @foreach (User item in Model)
     {
         @await Html.PartialAsync("_Follower", item)
@@ -10,5 +13,5 @@
 }
 else
 {
-    <h4 class="text-center"> Followers list is empty </h4>
+        <h4 class="text-center"> @Localizer["empty"] </h4>          
 }

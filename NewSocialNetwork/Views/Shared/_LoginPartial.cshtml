@@ -1,15 +1,18 @@
-﻿@if (User.Identity.IsAuthenticated)
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@if (User.Identity.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
         <li>
-            <a asp-controller="Account" asp-action="LogOff">Exit</a>
+            <a asp-controller="Account" asp-action="LogOff">@Localizer["Exit"]</a>
         </li>
     </ul>
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-controller="Account" asp-action="Login">Login</a></li>
-        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+        <li><a asp-controller="Account" asp-action="Login">@Localizer["Login"]</a></li>
+        <li><a asp-controller="Account" asp-action="Register">@Localizer["Register"]</a></li>
     </ul>
 }
